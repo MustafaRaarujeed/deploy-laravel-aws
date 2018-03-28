@@ -1,10 +1,10 @@
 version: 0.0
 os: linux 
 files:
-  - source: /public
-    destination: /var/www/html
   - source: /
     destination: /var/www/app
+  - source: /public
+    destination: /var/www/html
 permissions:
    - object: /var/www/html
      pattern: "**"
@@ -20,7 +20,5 @@ hooks:
     - location: deployment/startapache.sh
       runas: root
    AfterInstall:
-    - location: deployment/composerdeploy.sh
-      runas: root
     - location: deployment/restartapache.sh
       runas: root
