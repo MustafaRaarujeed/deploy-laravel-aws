@@ -13,6 +13,13 @@ permissions:
      mode: 755
      type:
         - file
+   - object: /var/www/app
+     pattern: "**"
+     owner: apache
+     group: apache
+     mode: 755
+     type:
+        - file
 hooks:
    BeforeInstall:
     - location: deployment/installapache.sh
