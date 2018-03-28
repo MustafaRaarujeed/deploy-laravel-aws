@@ -1,0 +1,26 @@
+version: 0.0
+os: linux 
+files:
+  - source: /public
+    destination: /var/www/html
+  - source: /
+    destination: /var/www/app
+permissions:
+   - object: /var/www/html
+     pattern: "**"
+     owner: apache
+     group: apache
+     mode: 755
+     type:
+        - file
+hooks:
+   BeforeInstall:
+    - location: deployment/installapache.sh
+      runas: root
+    - location: deployment/startapache.sh
+      runas: root
+   AfterInstall:
+    - location: deployment/restartapache.sh
+      runas: root
+    - location: deployment/composerdeploy.sh
+      runas: root
