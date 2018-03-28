@@ -13,13 +13,6 @@ permissions:
      mode: 755
      type:
         - file
-   - object: /var/www/app
-     pattern: "**"
-     owner: apache
-     group: apache
-     mode: 755
-     type:
-        - file
 hooks:
    BeforeInstall:
     - location: deployment/installapache.sh
@@ -27,7 +20,7 @@ hooks:
     - location: deployment/startapache.sh
       runas: root
    AfterInstall:
-    - location: deployment/restartapache.sh
-      runas: root
     - location: deployment/composerdeploy.sh
+      runas: root
+    - location: deployment/restartapache.sh
       runas: root
