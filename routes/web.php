@@ -11,6 +11,11 @@
 |
 */
 
+use App\User;
+
 Route::get('/', function () {
     return view('welcome');
+});
+Route::get('/user', function(){
+	return User::all();
 });
