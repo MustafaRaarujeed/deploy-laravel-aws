@@ -17,14 +17,16 @@ composer install -d /var/www/html/
 # Copy configuration from /var/www/.env, see README.MD for more information
 cp /var/www/html/.env.example /var/www/html/.env
 
+# Generate key envryption
+php artisan key:generate
 
 # Clear any previous cached views
-php /var/www/html/artisan config:clear
-php /var/www/html/artisan cache:clear
-php /var/www/html/artisan view:clear
+php artisan config:clear
+php artisan cache:clear
+php artisan view:clear
 
 # Optimize the application
-php /var/www/html/artisan config:cache
+php artisan config:cache
 # php /var/www/html/artisan optimize
 
 # Change rights
@@ -32,9 +34,6 @@ chmod 777 -R /var/www/html/bootstrap/cache
 chmod 777 -R /var/www/html/storage
 chmod 777 -R /var/www/html/public/
 # chmod 777 -R /var/www/html/public/files/
-
-# Generate key envryption
-php artisan key:generate
 
 # Bring up application
 php artisan up
