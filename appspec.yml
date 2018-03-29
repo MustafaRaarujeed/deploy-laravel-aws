@@ -15,7 +15,5 @@ hooks:
     - location: deployment/change_permissions.sh
       timeout: 300
       runas: root
-   ApplicationStart:
-    - location: deployment/start_server.sh
-      timeout: 120
+    - location: deployment/restartapache.sh
       runas: root
