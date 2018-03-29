@@ -17,8 +17,6 @@ composer install -d /var/www/html/
 # Copy configuration from /var/www/.env, see README.MD for more information
 cp /var/www/html/.env.example /var/www/html/.env
 
-# Generate key envryption
-php /var/www/html/artisan key:generate
 
 # Clear any previous cached views
 php /var/www/html/artisan config:clear
@@ -35,5 +33,8 @@ chmod 777 -R /var/www/html/storage
 chmod 777 -R /var/www/html/public/
 # chmod 777 -R /var/www/html/public/files/
 
+# Generate key envryption
+php artisan key:generate
+
 # Bring up application
-php /var/www/html/artisan up
+php artisan up
